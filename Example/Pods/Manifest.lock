@@ -1,0 +1,16 @@
+PODS:
+  - Transactions (0.1.0)
+
+DEPENDENCIES:
+  - Transactions (from `../`)
+
+EXTERNAL SOURCES:
+  Transactions:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Transactions: c90cc32eeb367a8f034131640ff713b09068b933
+
+PODFILE CHECKSUM: 1e158dabb558a77f50b214a12871e6e8b5645098
+
+COCOAPODS: 1.8.3
