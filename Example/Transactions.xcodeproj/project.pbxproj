@@ -24,6 +24,7 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		9A710AE82500DF47004BBD13 /* GCTRunLoop.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A710AE72500DF47004BBD13 /* GCTRunLoop.m */; };
+		9A71148F25022540004BBD13 /* spaceship.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A71148E25022540004BBD13 /* spaceship.jpg */; };
 		F6F2844AA24FC076D22132EE /* Pods_Transactions_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05ED7F5EF3F7622937A68B7D /* Pods_Transactions_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9A710AE62500DF47004BBD13 /* GCTRunLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCTRunLoop.h; sourceTree = "<group>"; };
 		9A710AE72500DF47004BBD13 /* GCTRunLoop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCTRunLoop.m; sourceTree = "<group>"; };
+		9A71148E25022540004BBD13 /* spaceship.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spaceship.jpg; sourceTree = "<group>"; };
 		A68E2E74B2DE3B89D63FF07D /* Pods_Transactions_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transactions_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F52421519D5C030509C02465 /* Pods-Transactions_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transactions_Tests.release.xcconfig"; path = "Target Support Files/Pods-Transactions_Tests/Pods-Transactions_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		F8795D12D182153360B70759 /* Transactions.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Transactions.podspec; path = ../Transactions.podspec; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				9A71148D25022540004BBD13 /* Image */,
 				9A710AE52500DF47004BBD13 /* GCTRunLoop */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for Transactions */,
@@ -199,6 +202,15 @@
 			path = Transactions/GCTRunLoop;
 			sourceTree = "<group>";
 		};
+		9A71148D25022540004BBD13 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				9A71148E25022540004BBD13 /* spaceship.jpg */,
+			);
+			name = Image;
+			path = ../Image;
+			sourceTree = "<group>";
+		};
 		9B4CAF29A6A74034FD007298 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +305,7 @@
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				9A71148F25022540004BBD13 /* spaceship.jpg in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);

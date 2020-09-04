@@ -7,13 +7,65 @@
 //
 
 #import "XPAppDelegate.h"
+#import "GCTRunLoop.h"
+#import "Transaction.h"
+#import "TransactionGroup.h"
 
 @implementation XPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+//    __weak __typeof(self)weakSelf = self;
+//
+//    for (int i = 0; i < 1000; i++) {
+//
+//        [[GCTRunLoop shareInstance] addTask:^BOOL{
+//            [weakSelf nslogmes:i];
+//            return YES;
+//        }];
+//    }
+    
+    
+//    ASDK 提供了一个私有的管理事务的机制，由三部分组成 _ASAsyncTransactionGroup、_ASAsyncTransactionContainer 以及 _ASAsyncTransaction，这三者各自都有不同的功能：
+//    _ASAsyncTransactionGroup 会在初始化时，向 Runloop 中注册一个回调，在每次 Runloop 结束时，执行回调来提交 displayBlock 执行的结果
+//    _ASAsyncTransactionContainer 为当前 CALayer 提供了用于保存事务的容器，并提供了获取新的 _ASAsyncTransaction 实例的便利方法
+//    _ASAsyncTransaction 将异步操作封装成了轻量级的事务对象，使用 C++ 代码对 GCD 进行了封装
+    
+    asyncdisplaykit_async_transaction_operation_block_t displayBlock = ^id{
+        
+        UIImage *image = [UIImage new];
+        return image;
+    };
+    
+    asyncdisplaykit_async_transaction_operation_completion_block_t completionBlock = ^(id<NSObject> value, BOOL canceled){
+        NSLog(@"11");
+    };
+    
+//    Transaction *transaction = [Transaction new];
+//    [transaction addOperationWithBlock:displayBlock queue:[self displayQueue] completion:completionBlock];
+
+    [TransactionGroup mainTransactionGroup];
+    
     return YES;
+}
+
+- (void)nslogmes:(int)i {
+    NSLog(@"%d",i);
+}
+
+#pragma mark -
+
+- (dispatch_queue_t)displayQueue
+{
+  static dispatch_queue_t displayQueue = NULL;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    displayQueue = dispatch_queue_create("org.AsyncDisplayKit.ASDisplayLayer.displayQueue", DISPATCH_QUEUE_CONCURRENT);
+    // we use the highpri queue to prioritize UI rendering over other async operations
+    dispatch_set_target_queue(displayQueue, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0));
+  });
+
+  return displayQueue;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

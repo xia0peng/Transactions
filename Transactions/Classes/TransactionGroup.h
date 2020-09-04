@@ -9,7 +9,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol TransactionContainer;
+
+/// A group of transaction containers, for which the current transactions are committed together at the end of the next runloop tick.
 @interface TransactionGroup : NSObject
+/// The main transaction group is scheduled to commit on every tick of the main runloop.
++ (TransactionGroup *)mainTransactionGroup;
++ (void)commit;
+
+/// Add a transaction container to be committed.
+- (void)addTransactionContainer:(id<TransactionContainer>)container;
 
 @end
 

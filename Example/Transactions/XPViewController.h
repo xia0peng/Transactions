@@ -11,3 +11,9 @@
 @interface XPViewController : UIViewController
 
 @end
+
+@interface UITableViewCell (DWURunLoopWorkDistribution)
+
+@property (nonatomic, strong) NSIndexPath *currentIndexPath;
+
+@end
