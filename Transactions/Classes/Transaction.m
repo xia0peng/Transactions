@@ -25,7 +25,7 @@
 
 - (void)dealloc
 {
-  NSAssert(_operationCompletionBlock == nil, @"Should have been called and released before -dealloc");
+//  NSAssert(_operationCompletionBlock == nil, @"Should have been called and released before -dealloc");
 }
 
 - (void)callAndReleaseCompletionBlock:(BOOL)canceled;
@@ -100,7 +100,7 @@
 //    ASAsyncTransactionAssertMainThread();
 //    NSAssert(self.state == ASAsyncTransactionStateOpen, @"You can only add operations to open transactions");
 //
-//    [self _ensureTransactionData];
+    [self _ensureTransactionData];
 
     TransactionOperation *operation = [[TransactionOperation alloc] initWithOperationCompletionBlock:completion];
     [_operations addObject:operation];
@@ -111,6 +111,33 @@
 //        }
 //      }
 //    });
+}
+
+- (void)commit
+{
+//  ASAsyncTransactionAssertMainThread();
+//  NSAssert(self.state == ASAsyncTransactionStateOpen, @"You cannot double-commit a transaction");
+//  self.state = ASAsyncTransactionStateCommitted;
+  
+  if ([_operations count] == 0) {
+    // Fast path: if a transaction was opened, but no operations were added, execute completion block synchronously.
+    if (_completionBlock) {
+      _completionBlock(self, NO);
+    }
+  } else {
+//    NSAssert(_group != NULL, @"If there are operations, dispatch group should have been created");
+      
+      if (_completionBlock) {
+        _completionBlock(self, YES);
+      }
+    
+//    _group->notify(_callbackQueue, ^{
+//      // _callbackQueue is the main queue in current practice (also asserted in -waitUntilComplete).
+//      // This code should be reviewed before taking on significantly different use cases.
+//      ASAsyncTransactionAssertMainThread();
+//      [self completeTransaction];
+//    });
+  }
 }
 
 #pragma mark -

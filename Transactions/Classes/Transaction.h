@@ -37,6 +37,9 @@ typedef void(^asyncdisplaykit_async_transaction_operation_completion_block_t)(id
                      priority:(NSInteger)priority
                         queue:(dispatch_queue_t)queue
                    completion:(nullable asyncdisplaykit_async_transaction_operation_completion_block_t)completion;
+
+- (void)commit;
+
 @end
 
 NS_ASSUME_NONNULL_END

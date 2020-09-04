@@ -19,7 +19,7 @@
 static void _transactionGroupRunLoopObserverCallback(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *info);
 
 @interface TransactionGroup ()
-
+@property (nonatomic, strong) NSTimer *timer;
 @end
 
 @implementation TransactionGroup {
@@ -37,14 +37,21 @@ static void _transactionGroupRunLoopObserverCallback(CFRunLoopObserverRef observ
     return mainTransactionGroup;
 }
 
+- (void)_timerFiredMethod:(NSTimer *)timer {
+    //We do nothing here
+}
+
 + (void)registerTransactionGroupAsMainRunloopObserver:(TransactionGroup *)transactionGroup {
     TransactionAssertMainThread();
     static CFRunLoopObserverRef observer;
     Assert(observer == NULL, @"A _ASAsyncTransactionGroup should not be registered on the main runloop twice");
     // defer the commit of the transaction so we can add more during the current runloop iteration
     CFRunLoopRef runLoop = CFRunLoopGetCurrent();
-    CFOptionFlags activities = (kCFRunLoopBeforeWaiting | // before the run loop starts sleeping
-                                kCFRunLoopExit);          // before exiting a runloop run
+//    CFOptionFlags activities = (kCFRunLoopBeforeWaiting | // before the run loop starts sleeping
+//                                kCFRunLoopExit);          // before exiting a runloop run
+    
+    CFOptionFlags activities = kCFRunLoopBeforeWaiting;
+    
     CFRunLoopObserverContext context = {
       0,           // version
       (__bridge void *)transactionGroup,  // info
@@ -54,7 +61,7 @@ static void _transactionGroupRunLoopObserverCallback(CFRunLoopObserverRef observ
     };
 
     observer = CFRunLoopObserverCreate(NULL,        // allocator
-                                       kCFRunLoopBeforeWaiting,  // activities
+                                       activities,  // activities
                                        YES,         // repeats
                                        INT_MAX,     // order after CA transaction commits
                                        &_transactionGroupRunLoopObserverCallback,  // callback
@@ -64,17 +71,18 @@ static void _transactionGroupRunLoopObserverCallback(CFRunLoopObserverRef observ
 }
 
 - (instancetype)init {
-  if ((self = [super init])) {
-    _containers = [NSHashTable hashTableWithOptions:NSHashTableObjectPointerPersonality];
-  }
-  return self;
+    if ((self = [super init])) {
+      _containers = [NSHashTable hashTableWithOptions:NSHashTableObjectPointerPersonality];
+      _timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(_timerFiredMethod:) userInfo:nil repeats:YES];
+    }
+    return self;
 }
 
 - (void)addTransactionContainer:(id<TransactionContainer>)container
 {
-  TransactionAssertMainThread();
-  Assert(container != nil, @"No container");
-  [_containers addObject:container];
+    TransactionAssertMainThread();
+    Assert(container != nil, @"No container");
+    [_containers addObject:container];
 }
 
 - (void)commit {
@@ -87,9 +95,9 @@ static void _transactionGroupRunLoopObserverCallback(CFRunLoopObserverRef observ
       for (id<TransactionContainer> container in containersToCommit) {
         // Note that the act of committing a transaction may open a new transaction,
         // so we must nil out the transaction we're committing first.
-//        Transaction *transaction = container.asyncdisplaykit_currentAsyncTransaction;
+        Transaction *transaction = container;
 //        container.asyncdisplaykit_currentAsyncTransaction = nil;
-//        [transaction commit];
+        [transaction commit];
       }
     }
 }
@@ -101,9 +109,9 @@ static void _transactionGroupRunLoopObserverCallback(CFRunLoopObserverRef observ
 @end
 
 static void _transactionGroupRunLoopObserverCallback(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *info) {
-//    TransactionCAssertMainThread();
-//    TransactionGroup *group = (__bridge TransactionGroup *)info;
-//    [group commit];
+    TransactionCAssertMainThread();
+    TransactionGroup *group = (__bridge TransactionGroup *)info;
+    [group commit];
     
     NSLog(@"111");
 }
