@@ -15,44 +15,64 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    __weak __typeof(self)weakSelf = self;
-
-    for (int i = 0; i < 1000; i++) {
-
-        [[GCTRunLoop shareInstance] addTask:^BOOL{
-            [weakSelf nslogmes:i];
-            return YES;
-        }];
-    }
-    
+//    __weak __typeof(self)weakSelf = self;
+//
+//    for (int i = 0; i < 1000; i++) {
+//
+//        [[GCTRunLoop shareInstance] addTask:^BOOL{
+//            [weakSelf nslogmes:i];
+//            return YES;
+//        }];
+//    }
     
 //    ASDK 提供了一个私有的管理事务的机制，由三部分组成 _ASAsyncTransactionGroup、_ASAsyncTransactionContainer 以及 _ASAsyncTransaction，这三者各自都有不同的功能：
 //    _ASAsyncTransactionGroup 会在初始化时，向 Runloop 中注册一个回调，在每次 Runloop 结束时，执行回调来提交 displayBlock 执行的结果
 //    _ASAsyncTransactionContainer 为当前 CALayer 提供了用于保存事务的容器，并提供了获取新的 _ASAsyncTransaction 实例的便利方法
 //    _ASAsyncTransaction 将异步操作封装成了轻量级的事务对象，使用 C++ 代码对 GCD 进行了封装
-//
-//    for (int i = 0; i < 1000; i++) {
-//
-//        asyncdisplaykit_async_transaction_operation_block_t displayBlock = ^id{
-//
-//            UIImage *image = [UIImage new];
-//            NSLog(@"displayBlock:%d",i);
-//            return image;
-//        };
-//
-//        asyncdisplaykit_async_transaction_operation_completion_block_t completionBlock = ^(id<NSObject> value, BOOL canceled){
-//            NSLog(@"completionBlock:%d",i);
-//        };
-//
-//        Transaction *transaction = [Transaction new];
-//        [transaction addOperationWithBlock:displayBlock queue:[self displayQueue] completion:completionBlock];
-//
-//        [[TransactionGroup mainTransactionGroup] addTransactionContainer:transaction];
-//
-//
-//    }
-
     
+    for (int i = 0; i < 10000; i++) {
+
+        async_transaction_operation_block_t displayBlock = ^id{
+
+//            UIImage *image = [UIImage new];
+//            [NSThread sleepForTimeInterval:2];
+            NSLog(@"displayBlock:%d",i);
+
+            return [NSString stringWithFormat:@"%d",i];
+        };
+
+        async_transaction_operation_completion_block_t completionBlock = ^(id<NSObject> value, BOOL canceled){
+            NSLog(@"completionBlock:%@-%d",value,i);
+        };
+        
+        
+        
+        Transaction *transaction = [[Transaction alloc] initWithCallbackQueue:dispatch_get_main_queue() completionBlock:^(Transaction *completedTransaction, BOOL cancelled) {
+            NSLog(@"事务完成");
+        }];
+        
+        [transaction addCompletionBlock:^(Transaction * _Nonnull completedTransaction, BOOL canceled) {
+            NSLog(@"completionBlock:%d",i);
+        }];
+        [transaction addCompletionBlock:^(Transaction * _Nonnull completedTransaction, BOOL canceled) {
+            NSLog(@"-----");
+        }];
+        
+//        [transaction addOperationWithBlock:displayBlock priority:0 queue:[self displayQueue] completion:completionBlock];
+                
+//        [transaction addAsyncOperationWithBlock:^(async_transaction_complete_async_operation_block_t  _Nonnull completeOperationBlock) {
+//            NSLog(@"displayBlock:%d",i);
+//            completeOperationBlock([NSString stringWithFormat:@"%d",i]);
+//
+//        } priority:0 queue:[self displayQueue] completion:^(id<NSObject>  _Nullable value, BOOL canceled) {
+//
+//            NSLog(@"completionBlock:%@-%d",value,i);
+//        }];
+        [[TransactionGroup mainTransactionGroup] addTransactionContainer:transaction];
+        
+    }
+
+
     return YES;
 }
 
@@ -69,7 +89,7 @@
   dispatch_once(&onceToken, ^{
     displayQueue = dispatch_queue_create("org.AsyncDisplayKit.ASDisplayLayer.displayQueue", DISPATCH_QUEUE_CONCURRENT);
     // we use the highpri queue to prioritize UI rendering over other async operations
-    dispatch_set_target_queue(displayQueue, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0));
+//    dispatch_set_target_queue(displayQueue, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0));
   });
 
   return displayQueue;

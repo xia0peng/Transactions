@@ -8,13 +8,6 @@
 #import "TransactionGroup.h"
 #import "TransactionContainer.h"
 #import "Transaction.h"
-#import <pthread.h>
-
-#define Assert(condition, desc, ...) NSAssert(condition, desc, ##__VA_ARGS__)
-#define CAssert(condition, desc, ...) NSCAssert(condition, desc, ##__VA_ARGS__)
-
-#define TransactionAssertMainThread() Assert(0 != pthread_main_np(), @"This method must be called on the main thread")
-#define TransactionCAssertMainThread() CAssert(0 != pthread_main_np(), @"This function must be called on the main thread")
 
 static void _transactionGroupRunLoopObserverCallback(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *info);
 
@@ -23,7 +16,7 @@ static void _transactionGroupRunLoopObserverCallback(CFRunLoopObserverRef observ
 @end
 
 @implementation TransactionGroup {
-    NSHashTable<id<TransactionContainer>> *_containers;
+    NSMutableArray<id<TransactionContainer>> *_containers;
 }
 
 + (TransactionGroup *)mainTransactionGroup {
@@ -47,11 +40,8 @@ static void _transactionGroupRunLoopObserverCallback(CFRunLoopObserverRef observ
     Assert(observer == NULL, @"A _ASAsyncTransactionGroup should not be registered on the main runloop twice");
     // defer the commit of the transaction so we can add more during the current runloop iteration
     CFRunLoopRef runLoop = CFRunLoopGetCurrent();
-//    CFOptionFlags activities = (kCFRunLoopBeforeWaiting | // before the run loop starts sleeping
-//                                kCFRunLoopExit);          // before exiting a runloop run
-    
-    CFOptionFlags activities = kCFRunLoopBeforeWaiting;
-    
+    CFOptionFlags activities = (kCFRunLoopBeforeWaiting); // before the run loop starts sleeping
+        
     CFRunLoopObserverContext context = {
       0,           // version
       (__bridge void *)transactionGroup,  // info
@@ -71,15 +61,15 @@ static void _transactionGroupRunLoopObserverCallback(CFRunLoopObserverRef observ
 }
 
 - (instancetype)init {
-    if ((self = [super init])) {
-      _containers = [NSHashTable hashTableWithOptions:NSHashTableObjectPointerPersonality];
-      _timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(_timerFiredMethod:) userInfo:nil repeats:YES];
+    self = [super init];
+    if (self) {
+        _containers = [NSMutableArray array];
+        _timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(_timerFiredMethod:) userInfo:nil repeats:YES];
     }
     return self;
 }
 
-- (void)addTransactionContainer:(id<TransactionContainer>)container
-{
+- (void)addTransactionContainer:(id<TransactionContainer>)container {
     TransactionAssertMainThread();
     Assert(container != nil, @"No container");
     [_containers addObject:container];
@@ -88,17 +78,16 @@ static void _transactionGroupRunLoopObserverCallback(CFRunLoopObserverRef observ
 - (void)commit {
     TransactionAssertMainThread();
 
-    if ([_containers count]) {
-      NSHashTable *containersToCommit = _containers;
-      _containers = [NSHashTable hashTableWithOptions:NSHashTableObjectPointerPersonality];
-
-      for (id<TransactionContainer> container in containersToCommit) {
-        // Note that the act of committing a transaction may open a new transaction,
-        // so we must nil out the transaction we're committing first.
-        Transaction *transaction = container;
-//        container.asyncdisplaykit_currentAsyncTransaction = nil;
+    if (_containers.count == 0) {
+        return;
+    }
+    
+    BOOL result = NO;
+    while (result == NO && _containers.count) {
+        Transaction *transaction  = _containers.firstObject;
         [transaction commit];
-      }
+        result = YES;
+        [_containers removeObjectAtIndex:0];
     }
 }
 
@@ -112,6 +101,4 @@ static void _transactionGroupRunLoopObserverCallback(CFRunLoopObserverRef observ
     TransactionCAssertMainThread();
     TransactionGroup *group = (__bridge TransactionGroup *)info;
     [group commit];
-    
-    NSLog(@"111");
 }

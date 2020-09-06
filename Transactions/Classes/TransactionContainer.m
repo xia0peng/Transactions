@@ -6,7 +6,3 @@
 //
 
 #import "TransactionContainer.h"
-
-@implementation TransactionContainer
-
-@end
