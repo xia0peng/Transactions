@@ -10,18 +10,18 @@
 		023DAF80D5924369E2C21DF05EAFB662 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		195E4E61DD5530FAF9BE796B70100ECF /* Pods-Transactions_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C4C35F5273B32C399533CAA2D711CFD /* Pods-Transactions_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		198E20D98D703E45DF6E443655CC761A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		3C422566C1846E8DB0C856316151326F /* TransactionGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 54AA0290FC2F350384A6EE807DD44E53 /* TransactionGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		40FD5E5016384D85C3EA03EC19711D94 /* Transaction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5ACAD1C42465828F18BD240B2A4CFF52 /* Transaction.mm */; };
-		416120CC007BACB030511A41179AF49D /* TransactionGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C027F6150EE963762037B2F2C7F32D0 /* TransactionGroup.m */; };
-		7981FBC7CB3174843ECBA17A38EA225C /* Transaction.h in Headers */ = {isa = PBXBuildFile; fileRef = C26677D7E3986149D55996CC9D4E215F /* Transaction.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8722BCB6B046E890FF691649AD86E3F0 /* Transactions-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A7EEA35FB912F8FF9AB5D39F18C591A /* Transactions-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		953CF740BFD4F3A18660DCA9555AEBA2 /* Transactions-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD80DFA678D16945EF6A2731D1BC0B3 /* Transactions-dummy.m */; };
+		3C422566C1846E8DB0C856316151326F /* TransactionGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = A713C73E76D49AA43D42A99D78CA33B3 /* TransactionGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		40FD5E5016384D85C3EA03EC19711D94 /* Transaction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5D33101B772AA7E54DAEC3316CA2A918 /* Transaction.mm */; };
+		416120CC007BACB030511A41179AF49D /* TransactionGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AD6098ED0BC46EFECC0D98D5C3D5FD /* TransactionGroup.m */; };
+		7981FBC7CB3174843ECBA17A38EA225C /* Transaction.h in Headers */ = {isa = PBXBuildFile; fileRef = 66BA59BEC6DA9B57A309EF408B328D16 /* Transaction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8722BCB6B046E890FF691649AD86E3F0 /* Transactions-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C3EF2F7330EDA7698099AC10A4C79A4 /* Transactions-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		953CF740BFD4F3A18660DCA9555AEBA2 /* Transactions-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B58A718E9D418FA75904A31C6B93EC1 /* Transactions-dummy.m */; };
 		BA11A9598CCDCB1AAE4E8BA1C167E23B /* Pods-Transactions_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BB38734E97860F254F7092AADA4A25 /* Pods-Transactions_Tests-dummy.m */; };
-		BFAE9F4342CFDE5ADDE27AA05C35C1B9 /* TransactionContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 45F6053AB650FB18DF5CD9E649E97B01 /* TransactionContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BFAE9F4342CFDE5ADDE27AA05C35C1B9 /* TransactionContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = E9C4844E5A20402DEC3DA2AFA515E56B /* TransactionContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C6B0D5EBFFDDC15E113443D1476C6D2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		C8D07BBC5BE57AF7D7E52B4FDF1EF78D /* Pods-Transactions_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D73B7013E9C0605E7D4112EA7F6D7A77 /* Pods-Transactions_Example-dummy.m */; };
 		C8F97D14C6A9D89FE7E52B037A4700AF /* Pods-Transactions_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EF2C014C68474F660ADDB331CAE29A9E /* Pods-Transactions_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E143C841082E7E475273EBD9FC199395 /* TransactionContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 507E477B318F6CE8A628ABD060D15EF4 /* TransactionContainer.m */; };
+		E143C841082E7E475273EBD9FC199395 /* TransactionContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B06017AAB1034F27C82009D917AABC /* TransactionContainer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,42 +44,41 @@
 /* Begin PBXFileReference section */
 		0C23E49CA28F735F87BCDF01B719B64A /* Pods-Transactions_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Transactions_Example-Info.plist"; sourceTree = "<group>"; };
 		157B759BBF865D9917A634AE5244C6FE /* Pods-Transactions_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Transactions_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		16B06017AAB1034F27C82009D917AABC /* TransactionContainer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TransactionContainer.m; path = Transactions/Classes/TransactionContainer.m; sourceTree = "<group>"; };
+		1B6D82D20A8AD477A224E6C0D3CA90FB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		1E12284DA7D24A24843208EFC7008D03 /* Pods-Transactions_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Transactions_Tests.modulemap"; sourceTree = "<group>"; };
 		1F606ECCA6733D01D3AA8FDC2D9A6582 /* Pods-Transactions_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Transactions_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		282C769C3A2B1388C708DB073B11205C /* Transactions.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Transactions.modulemap; sourceTree = "<group>"; };
+		246E8B5A9A574716B51276119B825B8A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		2B58A718E9D418FA75904A31C6B93EC1 /* Transactions-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Transactions-dummy.m"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		3A64FB83A772E79DAA13183982032E41 /* Transactions-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Transactions-prefix.pch"; sourceTree = "<group>"; };
-		45F6053AB650FB18DF5CD9E649E97B01 /* TransactionContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TransactionContainer.h; path = Transactions/Classes/TransactionContainer.h; sourceTree = "<group>"; };
-		507E477B318F6CE8A628ABD060D15EF4 /* TransactionContainer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TransactionContainer.m; path = Transactions/Classes/TransactionContainer.m; sourceTree = "<group>"; };
-		54AA0290FC2F350384A6EE807DD44E53 /* TransactionGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TransactionGroup.h; path = Transactions/Classes/TransactionGroup.h; sourceTree = "<group>"; };
+		46D45F7EA262B17720554B481195ECE2 /* Transactions-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Transactions-prefix.pch"; sourceTree = "<group>"; };
 		5A972898D5D3DA719D70C7BA5BF7F7CC /* Pods-Transactions_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Transactions_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		5ACAD1C42465828F18BD240B2A4CFF52 /* Transaction.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = Transaction.mm; path = Transactions/Classes/Transaction.mm; sourceTree = "<group>"; };
+		5B28ECF8D38CA032ABC1CCDF46FCF738 /* Transactions.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Transactions.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		5BCB05B8636CFF15E8CDAE5CFD2255FC /* Transactions.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Transactions.modulemap; sourceTree = "<group>"; };
+		5D33101B772AA7E54DAEC3316CA2A918 /* Transaction.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = Transaction.mm; path = Transactions/Classes/Transaction.mm; sourceTree = "<group>"; };
+		66BA59BEC6DA9B57A309EF408B328D16 /* Transaction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Transaction.h; path = Transactions/Classes/Transaction.h; sourceTree = "<group>"; };
 		6C4C35F5273B32C399533CAA2D711CFD /* Pods-Transactions_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Transactions_Example-umbrella.h"; sourceTree = "<group>"; };
+		733A905728182C981A800F7DF189772B /* Transactions-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Transactions-Info.plist"; sourceTree = "<group>"; };
 		7342920BB8D7D5A31E22B4959E5F0A43 /* Pods-Transactions_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Transactions_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		7E12E9EE90E95D40E82E33C657DE211B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		7C3EF2F7330EDA7698099AC10A4C79A4 /* Transactions-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Transactions-umbrella.h"; sourceTree = "<group>"; };
 		7E41492C083303EB0921B6BDC8FEBE22 /* Pods-Transactions_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Transactions_Example.modulemap"; sourceTree = "<group>"; };
 		84161F916CA2EDDE608B7484E7E0996A /* Pods-Transactions_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Transactions_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		84AD6098ED0BC46EFECC0D98D5C3D5FD /* TransactionGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TransactionGroup.m; path = Transactions/Classes/TransactionGroup.m; sourceTree = "<group>"; };
 		88B96A2B8D1DE1353348113E6C09D3FC /* Pods_Transactions_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Transactions_Example.framework; path = "Pods-Transactions_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8AD80DFA678D16945EF6A2731D1BC0B3 /* Transactions-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Transactions-dummy.m"; sourceTree = "<group>"; };
-		97E38A0EC5B02A2035C2A038F620FC98 /* Transactions-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Transactions-Info.plist"; sourceTree = "<group>"; };
 		99BB38734E97860F254F7092AADA4A25 /* Pods-Transactions_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Transactions_Tests-dummy.m"; sourceTree = "<group>"; };
-		9A7EEA35FB912F8FF9AB5D39F18C591A /* Transactions-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Transactions-umbrella.h"; sourceTree = "<group>"; };
-		9C027F6150EE963762037B2F2C7F32D0 /* TransactionGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TransactionGroup.m; path = Transactions/Classes/TransactionGroup.m; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A15ACC208E1FCB7D6317112BC4DD8482 /* Pods-Transactions_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Transactions_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		A4A021564316B867D19CD97D1D579BFF /* Pods-Transactions_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Transactions_Example-frameworks.sh"; sourceTree = "<group>"; };
+		A713C73E76D49AA43D42A99D78CA33B3 /* TransactionGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TransactionGroup.h; path = Transactions/Classes/TransactionGroup.h; sourceTree = "<group>"; };
 		BC5BF638BCC96F17C66B41F6DF237766 /* Pods-Transactions_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Transactions_Example.release.xcconfig"; sourceTree = "<group>"; };
-		BE43A09863B3666C293F4BA3AB1F06BE /* Transactions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Transactions.debug.xcconfig; sourceTree = "<group>"; };
-		C26677D7E3986149D55996CC9D4E215F /* Transaction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Transaction.h; path = Transactions/Classes/Transaction.h; sourceTree = "<group>"; };
+		C3CAB7AA8B03EAB73522F45903E238DE /* Transactions.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Transactions.xcconfig; sourceTree = "<group>"; };
 		CF58F8DCD3910F91B6644F693C1CE933 /* Pods-Transactions_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Transactions_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D73B7013E9C0605E7D4112EA7F6D7A77 /* Pods-Transactions_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Transactions_Example-dummy.m"; sourceTree = "<group>"; };
 		D9B4C02D2D6251C1A41EF25005F02B79 /* Transactions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Transactions.framework; path = Transactions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E3FC76E1CE8019A5658ED12345468FB6 /* Transactions.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Transactions.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		E463AA123951B73831235F4BF55E44B7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		E46FF890EF439BB9B634B7C30B188042 /* Pods-Transactions_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Transactions_Tests-Info.plist"; sourceTree = "<group>"; };
+		E9C4844E5A20402DEC3DA2AFA515E56B /* TransactionContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TransactionContainer.h; path = Transactions/Classes/TransactionContainer.h; sourceTree = "<group>"; };
 		EF2C014C68474F660ADDB331CAE29A9E /* Pods-Transactions_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Transactions_Tests-umbrella.h"; sourceTree = "<group>"; };
 		F14F2F4E236DA904F7E2053393729847 /* Pods_Transactions_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Transactions_Tests.framework; path = "Pods-Transactions_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC16D944C54B0EBEC4DA70D1E512AD1F /* Transactions.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Transactions.release.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +109,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1847E385E4C6E4E452DC93FC28DE0710 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5BCB05B8636CFF15E8CDAE5CFD2255FC /* Transactions.modulemap */,
+				C3CAB7AA8B03EAB73522F45903E238DE /* Transactions.xcconfig */,
+				2B58A718E9D418FA75904A31C6B93EC1 /* Transactions-dummy.m */,
+				733A905728182C981A800F7DF189772B /* Transactions-Info.plist */,
+				46D45F7EA262B17720554B481195ECE2 /* Transactions-prefix.pch */,
+				7C3EF2F7330EDA7698099AC10A4C79A4 /* Transactions-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Transactions";
+			sourceTree = "<group>";
+		};
 		2A29AEA7C2C4B40A97E51877A2C2673F /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,25 +135,9 @@
 		3210540DE0A92069AAD8B286462E38E3 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				65C15A207691B54EB1C2DF336955F9B2 /* Transactions */,
+				8B67337897A14F574BD6DAA0E2059987 /* Transactions */,
 			);
 			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		65C15A207691B54EB1C2DF336955F9B2 /* Transactions */ = {
-			isa = PBXGroup;
-			children = (
-				C26677D7E3986149D55996CC9D4E215F /* Transaction.h */,
-				5ACAD1C42465828F18BD240B2A4CFF52 /* Transaction.mm */,
-				45F6053AB650FB18DF5CD9E649E97B01 /* TransactionContainer.h */,
-				507E477B318F6CE8A628ABD060D15EF4 /* TransactionContainer.m */,
-				54AA0290FC2F350384A6EE807DD44E53 /* TransactionGroup.h */,
-				9C027F6150EE963762037B2F2C7F32D0 /* TransactionGroup.m */,
-				EC57124C20914F3B25AE2898FBE28D89 /* Pod */,
-				EDAD96C7B2C42439A40FF6B20315420F /* Support Files */,
-			);
-			name = Transactions;
-			path = ../..;
 			sourceTree = "<group>";
 		};
 		65D12E7CE9A541D06DE08F3E2D49FC0B /* Pods-Transactions_Tests */ = {
@@ -159,6 +156,16 @@
 			path = "Target Support Files/Pods-Transactions_Tests";
 			sourceTree = "<group>";
 		};
+		85169A8329D79F852C3129D4AD757D5B /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				246E8B5A9A574716B51276119B825B8A /* LICENSE */,
+				1B6D82D20A8AD477A224E6C0D3CA90FB /* README.md */,
+				5B28ECF8D38CA032ABC1CCDF46FCF738 /* Transactions.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
 		89B8FEAD879AFCE8FB89B1272D453471 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +174,22 @@
 				D9B4C02D2D6251C1A41EF25005F02B79 /* Transactions.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		8B67337897A14F574BD6DAA0E2059987 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				66BA59BEC6DA9B57A309EF408B328D16 /* Transaction.h */,
+				5D33101B772AA7E54DAEC3316CA2A918 /* Transaction.mm */,
+				E9C4844E5A20402DEC3DA2AFA515E56B /* TransactionContainer.h */,
+				16B06017AAB1034F27C82009D917AABC /* TransactionContainer.m */,
+				A713C73E76D49AA43D42A99D78CA33B3 /* TransactionGroup.h */,
+				84AD6098ED0BC46EFECC0D98D5C3D5FD /* TransactionGroup.m */,
+				85169A8329D79F852C3129D4AD757D5B /* Pod */,
+				1847E385E4C6E4E452DC93FC28DE0710 /* Support Files */,
+			);
+			name = Transactions;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		B903344FEED197E65B3AF02216012BEB /* Pods-Transactions_Example */ = {
@@ -211,31 +234,6 @@
 				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		EC57124C20914F3B25AE2898FBE28D89 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				7E12E9EE90E95D40E82E33C657DE211B /* LICENSE */,
-				E463AA123951B73831235F4BF55E44B7 /* README.md */,
-				E3FC76E1CE8019A5658ED12345468FB6 /* Transactions.podspec */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		EDAD96C7B2C42439A40FF6B20315420F /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				282C769C3A2B1388C708DB073B11205C /* Transactions.modulemap */,
-				8AD80DFA678D16945EF6A2731D1BC0B3 /* Transactions-dummy.m */,
-				97E38A0EC5B02A2035C2A038F620FC98 /* Transactions-Info.plist */,
-				3A64FB83A772E79DAA13183982032E41 /* Transactions-prefix.pch */,
-				9A7EEA35FB912F8FF9AB5D39F18C591A /* Transactions-umbrella.h */,
-				BE43A09863B3666C293F4BA3AB1F06BE /* Transactions.debug.xcconfig */,
-				FC16D944C54B0EBEC4DA70D1E512AD1F /* Transactions.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/Transactions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -460,9 +458,9 @@
 			};
 			name = Release;
 		};
-		22B023B76E9ACA6CFCAB1C2421CE2221 /* Release */ = {
+		28ED64BB8163C79E4F1DF30128DF8600 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC16D944C54B0EBEC4DA70D1E512AD1F /* Transactions.release.xcconfig */;
+			baseConfigurationReference = C3CAB7AA8B03EAB73522F45903E238DE /* Transactions.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -683,6 +681,37 @@
 			};
 			name = Debug;
 		};
+		80F89B5C5F6DAE71628AA8B2C2D287E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3CAB7AA8B03EAB73522F45903E238DE /* Transactions.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Transactions/Transactions-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Transactions/Transactions-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Transactions/Transactions.modulemap";
+				PRODUCT_MODULE_NAME = Transactions;
+				PRODUCT_NAME = Transactions;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		BF35E47E2B9DBA26193C16584B9B5304 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CF58F8DCD3910F91B6644F693C1CE933 /* Pods-Transactions_Example.debug.xcconfig */;
@@ -716,37 +745,6 @@
 			};
 			name = Debug;
 		};
-		E48EC6C0EC3FE67C8A521C8415A53118 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE43A09863B3666C293F4BA3AB1F06BE /* Transactions.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Transactions/Transactions-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Transactions/Transactions-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Transactions/Transactions.modulemap";
-				PRODUCT_MODULE_NAME = Transactions;
-				PRODUCT_NAME = Transactions;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -771,8 +769,8 @@
 		7BD616660C6D9964C8DDFFE22BB19481 /* Build configuration list for PBXNativeTarget "Transactions" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E48EC6C0EC3FE67C8A521C8415A53118 /* Debug */,
-				22B023B76E9ACA6CFCAB1C2421CE2221 /* Release */,
+				80F89B5C5F6DAE71628AA8B2C2D287E4 /* Debug */,
+				28ED64BB8163C79E4F1DF30128DF8600 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

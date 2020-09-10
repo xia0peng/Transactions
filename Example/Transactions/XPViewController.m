@@ -10,6 +10,16 @@
 #import "GCTRunLoop.h"
 #import <objc/runtime.h>
 
+@interface Sark : NSObject
+@property (nonatomic, copy) NSString *name;
+- (void)speak;
+@end
+@implementation Sark
+- (void)speak {
+   NSLog(@"my name's %@", self.name);
+}
+@end
+
 @implementation UITableViewCell (DWURunLoopWorkDistribution)
 
 @dynamic currentIndexPath;
@@ -37,6 +47,11 @@ static NSString *IDENTIFIER = @"IDENTIFIER";
 {
     [super viewDidLoad];
     
+    // https://halfrost.com/objc_runtime_isa_class/
+    id cls = [Sark class];
+    void *obj = &cls;
+    [(__bridge id)obj speak];
+
     [self.exampleTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:IDENTIFIER];
 }
 
