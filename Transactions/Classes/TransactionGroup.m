@@ -16,7 +16,7 @@ static void _transactionGroupRunLoopObserverCallback(CFRunLoopObserverRef observ
 @end
 
 @implementation TransactionGroup {
-    NSMutableArray<id<TransactionContainer>> *_containers;
+    NSHashTable<Transaction *> *_containers;
 }
 
 + (TransactionGroup *)mainTransactionGroup {
@@ -63,32 +63,42 @@ static void _transactionGroupRunLoopObserverCallback(CFRunLoopObserverRef observ
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _containers = [NSMutableArray array];
+        _containers = [NSHashTable hashTableWithOptions:NSHashTableObjectPointerPersonality];
         _timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(_timerFiredMethod:) userInfo:nil repeats:YES];
     }
     return self;
 }
 
-- (void)addTransactionContainer:(id<TransactionContainer>)container {
+- (void)addTransaction:(Transaction *)transaction {
     TransactionAssertMainThread();
-    Assert(container != nil, @"No container");
-    [_containers addObject:container];
+    Assert(transaction != nil, @"No container");
+    [_containers addObject:transaction];
 }
 
 - (void)commit {
     TransactionAssertMainThread();
-
-    if (_containers.count == 0) {
-        return;
-    }
     
-    BOOL result = NO;
-    while (result == NO && _containers.count) {
-        Transaction *transaction  = _containers.firstObject;
-        [transaction commit];
-        result = YES;
-        [_containers removeObjectAtIndex:0];
+    
+    if ([_containers count]) {
+        NSHashTable *containersToCommit = _containers;
+        _containers = [NSHashTable hashTableWithOptions:NSHashTableObjectPointerPersonality];
+
+        for (Transaction *transaction in containersToCommit) {
+            [transaction commit];
+        }
     }
+
+//    if (_containers.count <= 0) {
+//        return;
+//    }
+//
+//    BOOL result = NO;
+//    while (result == NO && _containers.count) {
+//        Transaction *transaction  = _containers.firstObject;
+//        [transaction commit];
+//        result = YES;
+//        [_containers removeObjectAtIndex:0];
+//    }
 }
 
 + (void)commit {

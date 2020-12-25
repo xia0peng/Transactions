@@ -10,7 +10,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol TransactionContainer
-
+// AsyncDisplayKit
+// 未使用
+// 使用 NET 方法。 类似于这个容器。    各个类实现协议去事务
 @end
 
 NS_ASSUME_NONNULL_END

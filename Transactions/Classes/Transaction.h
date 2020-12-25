@@ -101,6 +101,8 @@ The state of the transaction.
                              queue:(dispatch_queue_t)queue
                         completion:(nullable async_transaction_operation_completion_block_t)completion;
 
+// 添加一个块，在异步事务完成时运行
+// 当所有事务中的操作已完成。在callbackQueue上执行并释放。
 - (void)addCompletionBlock:(async_transaction_completion_block_t)completion;
 
 - (void)waitUntilComplete;
