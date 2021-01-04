@@ -70,7 +70,7 @@
 		9A71148E25022540004BBD13 /* spaceship.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spaceship.jpg; sourceTree = "<group>"; };
 		A68E2E74B2DE3B89D63FF07D /* Pods_Transactions_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transactions_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F52421519D5C030509C02465 /* Pods-Transactions_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transactions_Tests.release.xcconfig"; path = "Target Support Files/Pods-Transactions_Tests/Pods-Transactions_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		F8795D12D182153360B70759 /* Transactions.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Transactions.podspec; path = ../Transactions.podspec; sourceTree = "<group>"; };
+		F8795D12D182153360B70759 /* Transactions.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Transactions.podspec; path = ../Transactions.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		FF936352C48CEC65ECB33A4A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 

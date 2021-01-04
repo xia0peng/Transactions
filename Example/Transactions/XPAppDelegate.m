@@ -35,27 +35,38 @@
     
     for (int i = 0; i < 10000; i++) {
 
-        // 1
+        // 0
         
-        Transaction *transaction = [[Transaction alloc] initWithCallbackQueue:dispatch_get_main_queue() completionBlock:^(Transaction *completedTransaction, BOOL cancelled) {
+        Transaction *transaction0 = [[Transaction alloc] initWithCallbackQueue:dispatch_get_main_queue() completionBlock:^(Transaction *completedTransaction, BOOL cancelled) {
             NSLog(@"----事务%d执行完成----",i);
         }];
-
-        async_transaction_operation_block_t displayBlock = ^id{
-            NSLog(@"同步操作Block%d",i);
-            return [NSString stringWithFormat:@"%d",i];
-        };
-        async_transaction_operation_completion_block_t completionBlock = ^(id<NSObject> value, BOOL canceled){
-            NSLog(@"同步操作完成Block%d: %@", i,value);
-        };
-        [transaction addOperationWithBlock:displayBlock priority:0 queue:[self displayQueue] completion:completionBlock];
-
-        [transaction addCompletionBlock:^(Transaction * _Nonnull completedTransaction, BOOL canceled) {
-            //当所有事务中的操作已完成。在callbackQueue上执行并释放。
+        [transaction0 addCompletionBlock:^(Transaction * _Nonnull completedTransaction, BOOL canceled) {
             NSLog(@"CompletionBlock-%d",i);
         }];
-
-        [[TransactionGroup mainTransactionGroup] addTransaction:transaction];
+        [[TransactionGroup mainTransactionGroup] addTransaction:transaction0];
+        
+        
+        // 1
+        
+//        Transaction *transaction = [[Transaction alloc] initWithCallbackQueue:dispatch_get_main_queue() completionBlock:^(Transaction *completedTransaction, BOOL cancelled) {
+//            NSLog(@"----事务%d执行完成----",i);
+//        }];
+//
+//        async_transaction_operation_block_t displayBlock = ^id{
+//            NSLog(@"同步操作Block%d",i);
+//            return [NSString stringWithFormat:@"%d",i];
+//        };
+//        async_transaction_operation_completion_block_t completionBlock = ^(id<NSObject> value, BOOL canceled){
+//            NSLog(@"同步操作完成Block%d: %@", i,value);
+//        };
+//        [transaction addOperationWithBlock:displayBlock priority:0 queue:[self displayQueue] completion:completionBlock];
+//
+//        [transaction addCompletionBlock:^(Transaction * _Nonnull completedTransaction, BOOL canceled) {
+//            //当所有事务中的操作已完成。在callbackQueue上执行并释放。
+//            NSLog(@"CompletionBlock-%d",i);
+//        }];
+//
+//        [[TransactionGroup mainTransactionGroup] addTransaction:transaction];
         
         
         
