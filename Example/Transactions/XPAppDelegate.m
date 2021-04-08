@@ -31,7 +31,21 @@
 //    _ASAsyncTransactionContainer 为当前 CALayer 提供了用于保存事务的容器，并提供了获取新的 _ASAsyncTransaction 实例的便利方法
 //    _ASAsyncTransaction 将异步操作封装成了轻量级的事务对象，使用 C++ 代码对 GCD 进行了封装
     
+    dispatch_queue_t  queue = dispatch_queue_create("1111", DISPATCH_QUEUE_SERIAL);
+    for (int i = 0; i<10; i++) {
+        dispatch_async(queue, ^{
+            sleep(1);
+            NSLog(@"----------------------%d",i);
+        });
+    }
     
+    NSLog(@"----------------------A");
+    
+    dispatch_sync(queue, ^{
+        NSLog(@"----------------------B");
+    });
+    
+    NSLog(@"----------------------C");
     
     for (int i = 0; i < 10000; i++) {
 
